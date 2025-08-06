@@ -64,6 +64,8 @@ body {
       "g a a d"
       "h b c d"
       "h f e e";
+    min-width: none;
+    min-height: 0;
   }
 }
 img {
@@ -99,16 +101,52 @@ img {
   &.card-c {
     grid-area: c;
     background-color: var(--clr-secondary-variant);
+
+    @media (min-width: $media-screen) {
+      overflow: hidden;
+      img {
+        transform: translateY(90%);
+      }
+    }
   }
   &.card-d {
     grid-area: d;
     background-color: var(--clr-primary);
+
+    @media (min-width: $media-screen) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      div {
+        overflow: hidden;
+        align-self: stretch;
+        transform: translateX(16%);
+
+        img {
+          height: 100%;
+          width: 100%;
+          transform: translateX(37.5%);
+        }
+      }
+    }
   }
   &.card-e {
     grid-area: e;
     background-color: var(--clr-primary-variant);
     color: var(--white);
     text-align: center;
+
+    @media (min-width: $media-screen) {
+      display: flex;
+      align-items: center;
+      div {
+        flex: 1;
+      }
+      .title {
+        flex: 1;
+        font-size: 1.5rem;
+      }
+    }
   }
   &.card-f {
     grid-area: f;
